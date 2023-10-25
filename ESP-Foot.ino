@@ -2,7 +2,6 @@
 #include <WiFi.h>
 String data;
 typedef struct arm {
-  float yaw;
   float pitch;
   float roll;
 } arm;
@@ -16,8 +15,6 @@ arm data1;
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   data = "";
   memcpy(&data1, incomingData, sizeof(data1));
-  //data += data1.yaw;
-  //data += ";";
   data += data1.pitch;
   data += ";";
   data += data1.roll;
